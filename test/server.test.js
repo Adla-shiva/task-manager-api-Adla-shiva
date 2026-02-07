@@ -1,7 +1,9 @@
+
 const tap = require("tap");
 const supertest = require("supertest");
-const app = require("../app");
+const app = require("c:/Users/svc_hammer2/Documents/task-manager-api-Adla-shiva/app");
 const server = supertest(app);
+console.log("started");
 
 tap.test("POST /tasks", async (t) => {
   const newTask = {
@@ -10,6 +12,7 @@ tap.test("POST /tasks", async (t) => {
     completed: false,
   };
   const response = await server.post("/tasks").send(newTask);
+  console.log(response);
   t.equal(response.status, 201);
   t.end();
 });
